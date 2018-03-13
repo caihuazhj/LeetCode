@@ -1,21 +1,46 @@
+<<<<<<< HEAD
 import javax.sound.midi.Soundbank;
 import java.lang.annotation.Target;
 import java.util.HashMap;
 import java.util.Map;
+=======
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TimerTask;
 
 /**
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-
- You may assume that each input would have exactly one solution, and you may not use the same element twice.
-
- Example:
- Given nums = [2, 7, 11, 15], target = 9,
-
- Because nums[0] + nums[1] = 2 + 7 = 9,
- return [0, 1].
+ *You may assume that each input would have exactly one solution, and you may not use the same element twice.
+ *
+ *Example:
+ *Given nums = [2, 7, 11, 15], target = 9,
+ *
+ *Because nums[0] + nums[1] = 2 + 7 = 9,
+ *return [0, 1].
+ * @author Administrator
+ *
  */
+
 public class TwoSum {
-    public static int[]  twoSum(int[] nums, int target) {
+	
+	public int[] twoSumByHashMap(int[] nums, int target) {
+		Map<Integer, Integer> maps = new HashMap<>();
+		int[] res = new int[2];
+		for(int i = 0;i<nums.length;i++){
+			maps.put(nums[i], i);
+		}
+		for(int i = 0;i<nums.length;i++){
+			int temp = target - nums[i];
+			if (maps.containsValue(temp) && maps.get(temp) != i) {
+					res[0] = i;
+					res[1] = maps.get(temp);
+					return res;
+			}
+		}
+		
+		throw new IllegalArgumentException("No two sum solution");
+	}
+   	public static int[]  twoSum(int[] nums, int target) {
 
             int[] res = new int[2];
             for (int i=0;i<nums.length;i++){
@@ -29,6 +54,7 @@ public class TwoSum {
 
             return  res;
     }
+
 
     public static void main(String[] args) {
         int[] nums = {2,7,11,13};
@@ -45,4 +71,5 @@ public class TwoSum {
         System.out.println(maps.containsValue("for"));
 
     }
+
 }
