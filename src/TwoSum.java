@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-import javax.sound.midi.Soundbank;
-import java.lang.annotation.Target;
 import java.util.HashMap;
 import java.util.Map;
-=======
-import java.util.HashMap;
-import java.util.Map;
+
 import java.util.TimerTask;
 
 /**
