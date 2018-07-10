@@ -44,6 +44,7 @@ public class RemoveNthNodeFromEndofList {
             //pre位置为要删除的前一个节点
             pre = pre.next;
         }
+        //删除时，前一个节点直接指向下下个节点
         pre.next = pre.next.next;
 
         return head;
