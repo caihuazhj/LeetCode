@@ -10,7 +10,7 @@ public class Pow {
             return 1;
         }
         if (n<0){
-            return 1/myPow(x,n);
+            return 1/myPow(x,-n);
         }
 
         if (n%2==0){
