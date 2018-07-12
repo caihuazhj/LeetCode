@@ -1,6 +1,5 @@
 package LinkedList;
 
-import jdk.nashorn.internal.ir.WhileNode;
 
 /**
  * Given a linked list, rotate the list to the right by k places,
