@@ -1,3 +1,9 @@
+package LinkedList;
+
+
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * Write a program to find the node at which the intersection of two singly linked lists begins.
@@ -19,8 +25,7 @@
  * You may assume there are no cycles anywhere in the entire linked structure.
  * Your code should preferably run in O(n) time and use only O(1) memory.
  */
-import java.util.HashSet;
-import java.util.Set;
+
 
 public class IntersectionOfTwoLinkedLists {
     public class ListNode {
