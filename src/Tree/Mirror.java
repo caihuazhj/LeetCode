@@ -13,14 +13,19 @@ public class Mirror {
         int val;
         TreeNode left;
         TreeNode right;
-        TreeNode(int x) { val = x; }
+
+        TreeNode(int x) {
+            val = x;
+        }
     }
+
     List<Integer> res = new ArrayList<>();
-    public List<Integer> mirrorRecursively(TreeNode root){
-        if (root ==null){
+
+    public List<Integer> mirrorRecursively(TreeNode root) {
+        if (root == null) {
             return res;
         }
-        if (root.left==null&&root.right==null){
+        if (root.left == null && root.right == null) {
             res.add(root.val);
             return res;
         }
@@ -28,11 +33,12 @@ public class Mirror {
         root.left = root.right;
         root.right = temp;
 
-        if (root.left!=null){
+        if (root.left != null) {
             mirrorRecursively(root.left);
         }
-        if (root.right!=null){
+        if (root.right != null) {
             mirrorRecursively(root.right);
         }
+        return res;
     }
 }
