@@ -48,7 +48,7 @@ public class BinaryTreePreorderTraversal {
                 stack.push(root);
                 root = root.left;
             }
-            stack.pop();
+            root = stack.pop();
             root = root.right;
         }
         return res;

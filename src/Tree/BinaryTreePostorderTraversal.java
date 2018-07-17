@@ -1,9 +1,6 @@
 package Tree;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class BinaryTreePostorderTraversal {
     public class TreeNode {
@@ -33,36 +30,20 @@ public class BinaryTreePostorderTraversal {
      * @param root
      * @return
      */
-    public List<Integer> postorderTraversal1(TreeNode root) {
-
-        LinkedList<Integer> res = new LinkedList<>();
-        if (root==null){
-            return res;
-        }
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-
-        TreeNode cur;
-        TreeNode pre = null;
-        while (!stack.isEmpty()){
-            cur = stack.peek();
-            if (pre ==null || pre.left==cur||pre.right==cur){
-                if (cur.left!=null){
-                    stack.push(cur.left);
-                }else if(cur.right!=null){
-                    stack.push(cur.right);
-                }
-            }else if(cur.left==pre){
-                if (cur.right!=null){
-                    stack.push(cur.right);
-                }
-            }else {
-                res.add(cur.val);
-                stack.pop();
+    public List<Integer> postorderTraversal2(TreeNode root) {
+        LinkedList<Integer> result = new LinkedList<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode p = root;
+        while(!stack.isEmpty() || p != null) {
+            if(p != null) {
+                stack.push(p);
+                result.addFirst(p.val);  // Reverse the process of preorder
+                p = p.right;             // Reverse the process of preorder
+            } else {
+                TreeNode node = stack.pop();
+                p = node.left;           // Reverse the process of preorder
             }
-            pre = cur;
         }
-        return res;
-
+        return result;
     }
 }
